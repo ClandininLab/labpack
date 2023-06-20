@@ -1,0 +1,41 @@
+experimenter: JBM
+
+animal_metadata:
+  # Fill this in with any animal metadata you want
+  # GUI has built-ins for: animal_id, age and notes
+  sex: [Female, Male]  # the first entry will populate the selector in the GUI by default
+  species: [Mouse]
+
+  area_1: ['', left V1, right V1]  # Make the first entry empty if you don't want any default
+  area_2: ['', left V1, right V1] 
+
+  # ...add whatever other metadata you want...
+  # genotype: ['', isoD1]
+  # state: [starved, virgin]
+
+
+rig_config:
+  d222:
+    data_directory: /home/experimental/Desktop
+    screen_center: [0,0]
+    rig: magneto 
+    server_options: {'host': '0.0.0.0',
+                     'port': 60629,
+                     'use_server': True,
+                     'data_directory':  /home/experimental/Desktop,
+                     'visual_stim_module_paths': ['/home/experimental/labpack/labpack/visual_stim/example/']
+
+  Laptop:
+    data_directory: /home/experimental/Desktop
+    screen_center: [0, 0]
+    rig: (testing)
+
+
+# Note, all paths relative to the lab_package location specified in path_to_lab_package.txt
+parameter_presets_dir: presets/jbm  # directory where your parameter presets live
+
+module_paths:  # relative to the lab_package directory specified in visprotocol's path_to_lab_package.txt
+  protocol: lab_package/protocol/JBM_protocol.py  # module for user protocol classes. Should include class name "BaseProtocol"
+  data: lab_package/data.py  # module for data class. Class name should be "Data"
+  client: lab_package/client.py  # module for client class. Class name should be "Client"
+  daq: lab_package/device/daq.py  # daq module

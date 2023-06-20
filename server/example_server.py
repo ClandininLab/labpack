@@ -17,7 +17,7 @@ class ExampleServer(BaseServer):
 
 def main():
     # Define screen(s) for the rig. 
-    aux_screen = Screen(subscreens=[ExampleServer.get_subscreen('aux')], server_number=1, id=0, 
+    aux_screen = Screen(subscreens=[ExampleServer.get_subscreen('aux')], server_number=2, id=0, 
                         fullscreen=False, vsync=True, square_size=(0.25, 0.25))
 
     # Initialize server object, inheriting BaseServer. Define locomotion and daq classes and kwargs as desired.

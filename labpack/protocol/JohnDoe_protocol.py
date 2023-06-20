@@ -61,6 +61,46 @@ class DriftingSquareGrating(BaseProtocol):
 
 # %%
 
+class Flavor(BaseProtocol):
+    """
+    Moving patch, either rectangular or elliptical. Moves along a spherical or cylindrical trajectory
+    """
+    def __init__(self, cfg):
+        super().__init__(cfg)
+
+        self.run_parameters = self.get_run_parameter_defaults()
+        self.protocol_parameters = self.get_protocol_parameter_defaults()
+
+    def get_epoch_parameters(self):
+        super().get_epoch_parameters()
+
+        # Create stimpack.visual_stim epoch parameters dictionary
+        self.epoch_stim_parameters = self.get_moving_patch_parameters(center=self.epoch_protocol_parameters['center'],
+                                                                angle=self.epoch_protocol_parameters['angle'],
+                                                                speed=self.epoch_protocol_parameters['speed'],
+                                                                width=self.epoch_protocol_parameters['width_height'][0],
+                                                                height=self.epoch_protocol_parameters['width_height'][1],
+                                                                color=self.epoch_protocol_parameters['intensity'])
+
+    def get_protocol_parameter_defaults(self):
+        return {'pre_time': 0.5,
+                'stim_time': 3.0,
+                'tail_time': 1.0,
+                
+                'ellipse': True,
+                'width_height': [(5, 5), (10, 10), (15, 15), (20, 20), (25, 25), (30, 30)],
+                'intensity': 0.0,
+                'center': (0, 0),
+                'speed': 80.0,
+                'angle': 0.0,
+                'render_on_cylinder': False,
+                }
+
+    def get_run_parameter_defaults(self):
+        return {'num_epochs': 40,
+                'idle_color': 0.5,
+                'all_combinations': True,
+                'randomize_order': True}
 class MovingPatch(BaseProtocol):
     """
     Moving patch, either rectangular or elliptical. Moves along a spherical or cylindrical trajectory
