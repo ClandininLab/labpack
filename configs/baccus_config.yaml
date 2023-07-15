@@ -23,8 +23,7 @@ rig_config:
                      'port': 60629,
                      'use_server': True,
                      'data_directory':  /home/experimental/Desktop,
-                     'stim_module_paths': []}
-
+                     'stim_module_paths': ['/home/experimental/labpack/labpack/visual_stim/example/']}
   Laptop:
     data_directory: /home/experimental/Desktop
     screen_center: [0, 0]
@@ -35,7 +34,7 @@ rig_config:
 parameter_presets_dir: presets/jbm  # directory where your parameter presets live
 
 module_paths:  # relative to the lab_package directory specified in visprotocol's path_to_lab_package.txt
-  protocol: lab_package/protocol/JBM_protocol.py  # module for user protocol classes. Should include class name "BaseProtocol"
-  data: lab_package/data.py  # module for data class. Class name should be "Data"
-  client: lab_package/client.py  # module for client class. Class name should be "Client"
-  daq: lab_package/device/daq.py  # daq module
+  protocol: labpack/protocol/JBM_protocol.py  # module for user protocol classes. Should include class name "BaseProtocol"
+  data: labpack/data.py  # module for data class. Class name should be "Data"
+  client: labpack/client.py  # module for client class. Class name should be "Client"
+  daq: labpack/device/daq.py  # daq module

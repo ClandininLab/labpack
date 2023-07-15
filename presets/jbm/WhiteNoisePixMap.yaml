@@ -1,0 +1,114 @@
+WNTest:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25
+    tail_time: 1.0
+    angular_width: 360
+    boxes_w: 320
+    boxes_h: 160
+    frame_rate: 10.0
+    seed: 76
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+WNTrain:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 1500
+    tail_time: 1.0
+    angular_width: 360
+    boxes_w: 320
+    boxes_h: 160
+    frame_rate: 10.0
+    seed: 2024
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+WNTestRepeats:
+  run_parameters:
+    num_epochs: 10
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25
+    tail_time: 1.0
+    angular_width: 360
+    boxes_w: 320
+    boxes_h: 160
+    frame_rate: 10.0
+    seed: 76
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+? ''
+: run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25
+    tail_time: 1.0
+    angular_width: 360
+    boxes_w: 320
+    boxes_h: 160
+    frame_rate: 10.0
+    seed: 76
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+WNTestRepeatsBig:
+  run_parameters:
+    num_epochs: 10
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25
+    tail_time: 1.0
+    angular_width: 360
+    boxes_w: 160
+    boxes_h: 80
+    frame_rate: 10.0
+    seed: 76
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+WNTrainBig:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 1500
+    tail_time: 1.0
+    angular_width: 360
+    boxes_w: 160
+    boxes_h: 80
+    frame_rate: 10.0
+    seed: 37
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280

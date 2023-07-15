@@ -1,6 +1,7 @@
 from labpack.protocol import base_protocol
 import cv2
-from labpack.experiment import protocol
+from stimpack.experiment import protocol
+from stimpack.visual_stim.util import generate_lowercase_barcode
 
 class BaseProtocol(base_protocol.BaseProtocol):
     def __init__(self, cfg):
@@ -40,7 +41,8 @@ class MovieFilePixMap(BaseProtocol,  protocol.SharedPixMapProtocol):
                                       'width': self.epoch_protocol_parameters['angular_width'],
                                       'radius': self.epoch_protocol_parameters['render_radius'],
                                       'n_steps': self.epoch_protocol_parameters['render_n_steps'],
-                                      'surface': self.epoch_protocol_parameters['render_surface']}
+                                      'surface': self.epoch_protocol_parameters['render_surface'],
+                                      'rotation': self.epoch_protocol_parameters['rotation']}
 
 
     def get_protocol_parameter_defaults(self):
@@ -49,12 +51,13 @@ class MovieFilePixMap(BaseProtocol,  protocol.SharedPixMapProtocol):
                 'tail_time': 1.0,
                 'start_frame': 1000,
                 'angular_width': 360,
-                'filepath': '/home/baccuslab/Videos/threesixty.mp4', 
-                'frame_rate': 10.0,
-                'render_n_steps': 16,
+                'filepath': '/home/experimental/Videos/jcw.mp4', 
+                'frame_rate': 50.0,
+                'render_n_steps': 32,
                 'render_surface': 'spherical', # cylindrical, cylindrical_with_phi
                 'render_radius': 1,
-                }
+                'rotation': 280
+               }
 
     def get_run_parameter_defaults(self):
         return {'num_epochs': 1,
@@ -94,21 +97,23 @@ class WhiteNoisePixMap(BaseProtocol, protocol.SharedPixMapProtocol):
                                       'width': self.epoch_protocol_parameters['angular_width'],
                                       'radius': self.epoch_protocol_parameters['render_radius'],
                                       'n_steps': self.epoch_protocol_parameters['render_n_steps'],
-                                      'surface': self.epoch_protocol_parameters['render_surface']}
+                                      'surface': self.epoch_protocol_parameters['render_surface'],
+                                      'rotation': 280}
 
 
     def get_protocol_parameter_defaults(self):
         return {'pre_time': 1.0,
                 'stim_time': 4.0,
                 'tail_time': 1.0,
-                'angular_width': 360,
-                'boxes_w': 200,
-                'boxes_h': 200,
+                'angular_width': 280,
+                'boxes_w': 280,
+                'boxes_h': 140,
                 'frame_rate': 10.0,
                 'seed': 37,
-                'render_n_steps': 16,
+                'render_n_steps': 32,
                 'render_surface': 'spherical', # cylindrical, cylindrical_with_phi
                 'render_radius': 1,
+                'rotation': 280
                 }
 
     def get_run_parameter_defaults(self):

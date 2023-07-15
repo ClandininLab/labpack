@@ -50,7 +50,7 @@ class MagnetoServer(BaseServer):
 
 def main():
     left_screen = Screen(subscreens=[MagnetoServer.get_subscreens('l')], server_number=2, id=2, fullscreen=True, vsync=True, square_size=(0.1, 0.1), square_loc=(-0.9, -0.9), name='Left', horizontal_flip=False)
-    right_screen = Screen(subscreens=[MagnetoServer.get_subscreens('r')], server_number=2, id=1, fullscreen=True, vsync=False, square_size=(0.1, 0.1), square_loc=(0.9, 0.9), name='Right', horizontal_flip=False)
+    right_screen = Screen(subscreens=[MagnetoServer.get_subscreens('r')], server_number=2, id=1, fullscreen=True, vsync=True, square_size=(0.1, 0.1), square_loc=(0.9, 0.9), name='Right', horizontal_flip=False)
     aux_screen = Screen(subscreens=[MagnetoServer.get_subscreens('aux')], server_number=2, id=0, fullscreen=False, vsync=False, square_size=(0.1, 0.1), square_loc=(-1, -1), name='Aux', horizontal_flip=False)
 
     screens = [left_screen, right_screen, aux_screen]
@@ -74,6 +74,10 @@ def main():
     
     server = MagnetoServer(screens = screens)#, loco_class=loco_class, loco_kwargs=loco_kwargs, daq_class=daq_class, daq_kwargs=daq_kwargs)
     server.loop()
+
+    running = True
+    while running:
+        server.set_global_
 
 if __name__ == '__main__':
     main()

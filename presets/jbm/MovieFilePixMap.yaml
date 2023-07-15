@@ -1,0 +1,126 @@
+MovieTest_jcw_01:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25.0
+    tail_time: 1.0
+    start_frame: 1000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw_01.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+MovieTest_jcw_02:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25.0
+    tail_time: 1.0
+    start_frame: 1000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw_02.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+MovieTrain_jcw_02:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 1500
+    tail_time: 1.0
+    start_frame: 2000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw_02.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+MovieTrain_jcw:
+  run_parameters:
+    num_epochs: 1
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 1500
+    tail_time: 1.0
+    start_frame: 1000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+MovieTestRepeats_jcw_02:
+  run_parameters:
+    num_epochs: 10
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25.0
+    tail_time: 1.0
+    start_frame: 1000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw_02.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+MovieTestRepeats_jcw_01:
+  run_parameters:
+    num_epochs: 10
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 25.0
+    tail_time: 1.0
+    start_frame: 1000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw_01.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
+TestTest:
+  run_parameters:
+    num_epochs: 110
+    idle_color: 0.5
+    all_combinations: true
+    randomize_order: true
+  protocol_parameters:
+    pre_time: 1.0
+    stim_time: 1500
+    tail_time: 1.0
+    start_frame: 1000
+    angular_width: 360
+    filepath: /home/experimental/Videos/jcw.mp4
+    frame_rate: 50.0
+    render_n_steps: 32
+    render_surface: spherical
+    render_radius: 1
+    rotation: 280
