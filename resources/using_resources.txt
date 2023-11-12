@@ -1,3 +1,0 @@
-The contents of this directory are not tracked by git (see .gitignore file)
-You may add to it any resources (images, trajectory data, etc) that you need
-locally to generate a stimulus.

@@ -1,48 +1,28 @@
 experimenter: JohnDoe
-
-animal_metadata:
-  # Fill this in with any animal metadata you want
-  # GUI has built-ins for: animal_id, age and notes
-  sex: [Female, Male]  # the first entry will populate the selector in the GUI by default
-  species: [D. melanogaster]
-  prep: ['', optic glomeruli, left optic lobe, right optic lobe]  # Make the first entry empty if you don't want any default
-  
-  driver_1: ['', nSyb-Gal4, ChAT-T2A, VGAT-T2A, Gad1-Gal4,
-             L2, LC4, LC6, LC9, LC11, LC12, LC15, LC16, LC17, LC18, LC20, LC21, LC22, LC26,
-             R82D11, R65B05, R71C02, R92B02, R89C10]
-  effector_1: ['', Syt1GCaMP8m, Syt1GCaMP6f, TdTomato, GCaMP7f, GCaMP6f, GCaMP6m, jRGECO, JEDI]
-
-  driver_2: ['', nSyb-Gal4, ChAT-T2A, VGAT-T2A, Gad1-Gal4,
-             L2, LC4, LC6, LC9, LC11, LC12, LC15, LC16, LC17, LC18, LC20, LC21, LC22, LC26,
-             R82D11, R65B05, R71C02, R92B02, R89C10]
-  effector_2: ['', Syt1GCaMP8m, Syt1GCaMP6f, TdTomato, GCaMP7f, GCaMP6f, GCaMP6m, jRGECO, JEDI]
-
-  # ...add whatever other metadata you want...
-  # genotype: ['', isoD1]
-  # state: [starved, virgin]
-
+subject_metadata:
+  species: 'mouse'
+  genotype: ['PV-Cre', 'VIP-Cre', 'SST-Cre']
 
 rig_config:
-  Bruker_LeftScreen:
-    data_directory: /home/johndoe/Desktop
-    screen_center: [0,-30]
-    rig: Bruker
-    server_options: {'host': '171.65.17.246',
-                     'port': 60629,
-                     'use_server': True,
-                     'visual_stim_module_paths': ['/home/johndoe/src/labpack/labpack/stimulus/example']} # Where your custom visual stimulus modules reside
-    trigger: NIUSB6001(dev='Dev5', trigger_channel='ctr0')  # This trigger class should be defined in your daq module
-
   Laptop:
     data_directory: /home/johndoe/Desktop
     screen_center: [0, 0]
     rig: (testing)
     server_options: {'use_server': False,
                      #'disp_server_id': [1,0], # Use if you need to specify a particular display server and id.
-                     'visual_stim_module_paths': ['/home/johndoe/src/labpack/labpack/stimulus/example']}
+                     'visual_stim_module_paths': ['/home/dennis/vanilla_labpack/labpack/visual_stim']}
 
+# Note - default server address is '0.0.0.0' port 60629
+  Other:
+    data_directory: /home/johndoe/Desktop
+    screen_center: [0, 0]
+    rig: example_server 
+    server_options: {'host': '0.0.0.0',
+                     'port': 60629,
+                     'use_server': True,
+                     'visual_stim_module_paths': []}
 
-# Note, all paths relative to the labpack location specified in path_to_labpack.txt
+# To use non-default stimpack functions, set them here
 parameter_presets_dir: presets/example  # directory where your parameter presets live
 
 module_paths:  # relative to the labpack directory specified in stimpack.experiment's path_to_labpack.txt

@@ -1,0 +1,1 @@
+move get_subscreens out of server class, no reason, confusing

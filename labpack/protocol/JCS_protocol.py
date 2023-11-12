@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 
-@author: mhturner
+@author: jcsimon
 """
 
 from labpack.protocol import base_protocol
@@ -13,6 +13,48 @@ class BaseProtocol(base_protocol.BaseProtocol):
         super().__init__(cfg)  # call the parent class init method
 
 # %% Some simple visual stimulus protocol classes
+
+class UniformFlash(BaseProtocol):
+    """
+    Uniform flash, painted on a sphere
+    """
+    def __init__(self, cfg):
+        super().__init__(cfg)
+
+        self.run_parameters = self.get_run_parameter_defaults()
+        self.protocol_parameters = self.get_protocol_parameter_defaults()
+
+    def get_epoch_parameters(self):
+        super().get_epoch_parameters()
+        
+        center = self.adjust_center(self.epoch_protocol_parameters['center'])
+        centerX = center[0]
+        centerY = center[1]
+
+        self.epoch_stim_parameters = {'name': 'MovingPatch',
+                                      'width': self.epoch_protocol_parameters['width'],
+                                      'height': self.epoch_protocol_parameters['height'],
+                                      'color': self.epoch_protocol_parameters['intensity'],
+                                      'theta': centerX,
+                                      'phi': centerY,
+                                      }
+
+    def get_protocol_parameter_defaults(self):
+        return {'pre_time': 1.5,
+                'stim_time': 0.5,
+                'tail_time': 2,
+                
+                'width': 240,
+                'height': 240,
+                'intensity': [1,0],
+                'center': (0, 0),
+                }
+
+    def get_run_parameter_defaults(self):
+        return {'num_epochs': 100,
+                'idle_color': 0.5,
+                'all_combinations': True,
+                'randomize_order': True}
 
 class DriftingSquareGrating(BaseProtocol):
     """

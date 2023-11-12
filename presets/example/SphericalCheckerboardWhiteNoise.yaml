@@ -1,0 +1,17 @@
+med_nez:
+  run_parameters:
+    num_epochs: 30
+    idle_color: 0.5
+  protocol_parameters:
+    pre_time: 2.0
+    stim_time: 20
+    tail_time: 2.0
+    patch_size: 10
+    update_rate: 20.0
+    rand_min: 0.0
+    rand_max: 1.0
+    grid_width: 80
+    grid_height: 80
+    center:
+    - 0.0
+    - 0.0
