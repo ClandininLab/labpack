@@ -23,15 +23,16 @@ def create_subscreen(name):
 
 def main():
     # Define screen(s) for the rig. 
-    another_screen = Screen(subscreens=[create_subscreen('another_aux')], server_number=0, id=0,
-            fullscreen=False, vsync=True, square_size=(0.25, 0.25))
-
-    aux_screen = Screen(subscreens=[create_subscreen('aux')], server_number=0, id=0, 
-                        fullscreen=False, vsync=True, square_size=(0.25, 0.25))
+    aux_screen      = Screen(subscreens=[create_subscreen('aux')],         server_number=0, id=0, 
+                             fullscreen=False, vsync=True, square_size=(0.25, 0.25))
+    another_screen  = Screen(subscreens=[create_subscreen('another_aux')], server_number=0, id=1,
+                             fullscreen=False, vsync=True, square_size=(0.25, 0.25))
     visual_stim_kwargs = {'screens': [aux_screen, another_screen]}
 
     # Initialize server object, inheriting BaseServer. Define locomotion and daq classes and kwargs as desired.
-    server = ExampleServer(visual_stim_kwargs=visual_stim_kwargs, loco_class=None, loco_kwargs={}, daq_class=None, daq_kwargs={})
+    server = ExampleServer(visual_stim_kwargs=visual_stim_kwargs, 
+                           loco_class=None, loco_kwargs={}, 
+                           daq_class=None, daq_kwargs={})
 
     # Register any server-side functions to be called from the client.
     server.register_function_on_root(lambda: print("Hello, Server! From Client"), "hello_server")

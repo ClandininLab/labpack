@@ -1,6 +1,6 @@
 experimenter: JohnDoe
 subject_metadata:
-  species: 'mouse'
+  species: ['M. musculus', 'H. sapiens', 'D. melanogaster']
   genotype: ['PV-Cre', 'VIP-Cre', 'SST-Cre']
 
 rig_config:
@@ -10,7 +10,8 @@ rig_config:
     rig: (testing)
     server_options: {'use_server': False,
                      #'disp_server_id': [1,0], # Use if you need to specify a particular display server and id.
-                     'visual_stim_module_paths': ['/home/dennis/vanilla_labpack/labpack/visual_stim']}
+                     'visual_stim_module_paths': ['/home/johndoe/src/labpack/labpack/visual_stim/example']}
+    loco_available: True
 
 # Note - default server address is '0.0.0.0' port 60629
   Other:
@@ -20,7 +21,8 @@ rig_config:
     server_options: {'host': '0.0.0.0',
                      'port': 60629,
                      'use_server': True,
-                     'visual_stim_module_paths': []}
+                     'visual_stim_module_paths': ['/home/johndoe/src/labpack/labpack/visual_stim/example']}
+    loco_available: True
 
 # To use non-default stimpack functions, set them here
 parameter_presets_dir: presets/example  # directory where your parameter presets live
