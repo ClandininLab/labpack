@@ -10,7 +10,7 @@ setup(
     packages=['labpack'],
     install_requires=[
         'nidaqmx',
-        'labjack-ljm'
+        'labjack-ljm',
         'icosphere'],
     include_package_data=True,
     zip_safe=False,
