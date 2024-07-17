@@ -40,17 +40,6 @@ rig_config:
 parameter_presets_dir: presets/mc  # directory where your parameter presets live
 
 module_paths:  # relative to the labpack directory specified in stimpack.experiment's path_to_labpack.txt
-  protocol: labpack/protocol/JohnDoe_protocol.py  # module for user protocol classes. Should include class name "BaseProtocol"
-  data: labpack/data.py  # module for data class. Class name should be "Data"
-  client: labpack/client.py  # module for client class. Class name should be "Client"
-  daq: labpack/device/daq.py  # daq module
-
-
-
-# Note, all paths relative to the labpack location specified in path_to_labpack.txt
-parameter_presets_dir: presets/mc  # directory where your parameter presets live
-
-module_paths:  # relative to the labpack directory specified in stimpack.experiment's path_to_labpack.txt
   protocol:  # module for user protocol classes. Can be a list of modules.
     - labpack/protocol/JohnDoe_protocol.py
   data: labpack/data.py  # module for data class. Class name should be "Data". Only one module allowed.
