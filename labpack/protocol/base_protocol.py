@@ -15,7 +15,3 @@ from stimpack.experiment import protocol
 class BaseProtocol(protocol.BaseProtocol):
     def __init__(self, cfg):
         super().__init__(cfg)  # call the parent class init method
-
-    def get_moving_spot_parameters(self, center=None, angle=None, speed=None, radius=None, color=None, distance_to_travel=None, render_on_cylinder=None):
-        if radius is None: radius = self.epoch_protocol_parameters['radius']
-        return self.get_moving_patch_parameters(center=center, angle=angle, speed=speed, width=radius*2, height=radius*2, color=color, distance_to_travel=distance_to_travel, ellipse=True, render_on_cylinder=render_on_cylinder)

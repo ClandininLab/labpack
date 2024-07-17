@@ -90,6 +90,8 @@ class FtClosedLoopManager(LocoClosedLoopManager):
         self.ft_manager = FtManager(ft_bin=ft_bin, ft_config=ft_config, save_directory=save_directory, start_at_init=False)
         self.ft_ball_diameter = ft_ball_diameter # meters
 
+        self.prev_theta = 0
+
         if start_at_init:    self.start()
 
     def set_save_directory(self, save_directory):
@@ -118,6 +120,8 @@ class FtClosedLoopManager(LocoClosedLoopManager):
         x = (self.ft_ball_diameter/2) * float(toks[self.ft_x_idx])  # radians -> m
         y = -(self.ft_ball_diameter/2) * float(toks[self.ft_y_idx]) # radians -> m
         theta = -np.rad2deg(float(toks[self.ft_theta_idx]))         # radians -> degrees
+        theta = np.unwrap([self.prev_theta, theta], period=360)[1]  # unwrapped
+        self.prev_theta = theta
         
         return {'x': x, 'y': y, 'theta': theta, 'frame_num': frame_num, 'ts': ts}
     

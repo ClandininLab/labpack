@@ -1,34 +1,60 @@
 experimenter: JohnDoe
-subject_metadata:
-  species: ['M. musculus', 'H. sapiens', 'D. melanogaster']
-  genotype: ['PV-Cre', 'VIP-Cre', 'SST-Cre']
+subject_metadata: # User can specify any metadata they want to collect about the subject and the options will appear on the GUI
+  species: [M. musculus, H. sapiens, D. melanogaster]
+  genotype: [PV-Cre, VIP-Cre, SST-Cre]
+  # sex: [Female, Male]
 
 rig_config:
   Laptop:
     data_directory: /home/johndoe/Desktop
     screen_center: [0, 0]
-    rig: (testing)
-    server_options: {'use_server': False,
-                     #'disp_server_id': [1,0], # Use if you need to specify a particular display server and id.
-                     'visual_stim_module_paths': ['/home/johndoe/src/labpack/labpack/visual_stim/example']}
     loco_available: True
+    server_options: 
+      use_remote_server: False
+      #'disp_server_id': [1,0], # Use if you need to specify a particular display server and id.
 
-# Note - default server address is '0.0.0.0' port 60629
-  Other:
+  Other_w_local_server:
     data_directory: /home/johndoe/Desktop
     screen_center: [0, 0]
-    rig: example_server 
-    server_options: {'host': '0.0.0.0',
-                     'port': 60629,
-                     'use_server': True,
-                     'visual_stim_module_paths': ['/home/johndoe/src/labpack/labpack/visual_stim/example']}
     loco_available: True
+    # trigger: NIUSB6210(dev='Dev5', trigger_channel='ctr0')  # This trigger class should be defined in your daq module
+    server_options: 
+      use_remote_server': False
+      local_server_path: server/ExampleServer.py
+      data_directory': /home/johndoe/Desktop
+
+  Other_w_remote_server:
+    data_directory: /home/johndoe/Desktop
+    screen_center: [0, 0]
+    loco_available: True
+    # trigger: DAQonServer()
+    server_options:
+      use_remote_server: True
+      host: '0.0.0.0' # Note - default server address is '0.0.0.0' port 60629
+      port: 60629
+      data_directory: /home/johndoe_remote/Desktop
+
 
 # To use non-default stimpack functions, set them here
-parameter_presets_dir: presets/example  # directory where your parameter presets live
+# Note, all paths relative to the labpack location specified in path_to_labpack.txt
+parameter_presets_dir: presets/mc  # directory where your parameter presets live
 
 module_paths:  # relative to the labpack directory specified in stimpack.experiment's path_to_labpack.txt
   protocol: labpack/protocol/JohnDoe_protocol.py  # module for user protocol classes. Should include class name "BaseProtocol"
   data: labpack/data.py  # module for data class. Class name should be "Data"
   client: labpack/client.py  # module for client class. Class name should be "Client"
   daq: labpack/device/daq.py  # daq module
+
+
+
+# Note, all paths relative to the labpack location specified in path_to_labpack.txt
+parameter_presets_dir: presets/mc  # directory where your parameter presets live
+
+module_paths:  # relative to the labpack directory specified in stimpack.experiment's path_to_labpack.txt
+  protocol:  # module for user protocol classes. Can be a list of modules.
+    - labpack/protocol/JohnDoe_protocol.py
+  data: labpack/data.py  # module for data class. Class name should be "Data". Only one module allowed.
+  client: labpack/client.py  # module for client class. Class name should be "Client". Only one module allowed.
+  daq: labpack/device/daq.py  # daq module. Only one module allowed.
+  visual_stim: # visual stim modules to be loaded on the server. Can be a list of modules.
+    - labpack/visual_stim/example

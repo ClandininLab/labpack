@@ -167,6 +167,17 @@ class LabJackTSeries(daq.DAQ):
             time.sleep(high_time)
         self.write(output_channel, (write_states*0).tolist())
 
+    def set_digital_state(self, value=[1], output_channel=['FIO6']):
+        if not isinstance(output_channel, list):
+            output_channel = [output_channel]
+
+        if not isinstance(value, list):
+            value = [value]
+
+        assert len(value) == len(output_channel)
+
+        self.write(output_channel, value)
+
     def analog_output_step(self, output_channel='DAC0', pre_time=0.5, step_time=1, tail_time=0.5, step_amp=0.5, dt=0.01):
         """
         Generate a voltage step with defined amplitude

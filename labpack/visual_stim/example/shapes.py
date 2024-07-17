@@ -1,5 +1,4 @@
 import numpy as np
-from math import radians
 from stimpack.visual_stim import shapes as spv_shapes
 from stimpack.visual_stim import util as spv_util
 import icosphere

@@ -23,9 +23,9 @@ def create_subscreen(name):
 
 def main():
     # Define screen(s) for the rig. 
-    aux_screen      = Screen(subscreens=[create_subscreen('aux')],         server_number=0, id=0, 
+    aux_screen      = Screen(subscreens=[create_subscreen('aux')],         x_display=None, display_index=0,
                              fullscreen=False, vsync=True, square_size=(0.25, 0.25))
-    another_screen  = Screen(subscreens=[create_subscreen('another_aux')], server_number=0, id=1,
+    another_screen  = Screen(subscreens=[create_subscreen('another_aux')], x_display=None, display_index=1,
                              fullscreen=False, vsync=True, square_size=(0.25, 0.25))
     visual_stim_kwargs = {'screens': [aux_screen, another_screen]}
 

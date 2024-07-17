@@ -2,13 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Data file class
-
-
 """
-import h5py
-import os
-from datetime import datetime
-import numpy as np
 
 from stimpack.experiment import data
 
